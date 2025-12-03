@@ -5800,3 +5800,65 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'is_revoked
 2025-12-03 12:42:42 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2025-12-03 12:42:42 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [ApiResponse(code=200, message=消息发送成功, data=MessageResponse(id=1, senderId=1, senderNickname=test, se (truncated)...]
 2025-12-03 12:42:42 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /groups/create
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.security.JwtAuthenticationFilter - JWT过滤器处理请求: /api/groups/create
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.security.JwtAuthenticationFilter - 从请求中提取的JWT: eyJhbGciOiJIUzI1NiIs...
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.security.JwtAuthenticationFilter - JWT验证成功，用户名: testuser
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.s.CustomUserDetailsService - 加载用户详情: testuser
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.security.JwtAuthenticationFilter - 用户详情加载成功: testuser
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG c.c.security.JwtAuthenticationFilter - 用户认证成功: testuser, 请求路径: /api/groups/create
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /groups/create
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/groups/create", parameters={}
+2025-12-03 12:43:00 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 405 METHOD_NOT_ALLOWED
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2025-12-03 12:43:00 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-03 12:43:00 [http-nio-8080-exec-2] ERROR c.c.s.JwtAuthenticationEntryPoint - 未认证的请求: /api/error, 错误: Full authentication is required to access this resource
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG c.c.security.JwtAuthenticationFilter - JWT过滤器处理请求: /api/auth/login
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG c.c.security.JwtAuthenticationFilter - 从请求中提取的JWT: null
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG c.c.security.JwtAuthenticationFilter - 请求中没有JWT token，请求路径: /api/auth/login
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.chatplatform.controller.AuthController#login(UserLoginRequest)
+2025-12-03 12:43:07 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [UserLoginRequest(usernameOrQqNumber=testuser, password=123456, rememberMe=false)]
+2025-12-03 12:43:07 [http-nio-8080-exec-4] INFO  c.c.controller.AuthController - 用户登录请求: testuser
+2025-12-03 12:43:07 [http-nio-8080-exec-4] INFO  c.chatplatform.service.UserService - 用户登录: testuser
+2025-12-03 12:43:07 [http-nio-8080-exec-4] INFO  c.chatplatform.service.UserService - 用户登录成功: userId=1, qqNumber=11575399
+2025-12-03 12:43:08 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 12:43:08 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [ApiResponse(code=200, message=登录成功, data=UserService.LoginResult(user=UserResponse(id=1, qqNumber=11 (truncated)...]
+2025-12-03 12:43:08 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /groups/create
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.security.JwtAuthenticationFilter - JWT过滤器处理请求: /api/groups/create
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.security.JwtAuthenticationFilter - 从请求中提取的JWT: eyJhbGciOiJIUzI1NiIs...
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.security.JwtAuthenticationFilter - JWT验证成功，用户名: testuser
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.s.CustomUserDetailsService - 加载用户详情: testuser
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.security.JwtAuthenticationFilter - 用户详情加载成功: testuser
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG c.c.security.JwtAuthenticationFilter - 用户认证成功: testuser, 请求路径: /api/groups/create
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured POST /groups/create
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/groups/create", parameters={}
+2025-12-03 12:43:30 [http-nio-8080-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 405 METHOD_NOT_ALLOWED
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing POST /error
+2025-12-03 12:43:30 [http-nio-8080-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-12-03 12:43:30 [http-nio-8080-exec-6] ERROR c.c.s.JwtAuthenticationEntryPoint - 未认证的请求: /api/error, 错误: Full authentication is required to access this resource
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing POST /chat/group/send
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.security.JwtAuthenticationFilter - JWT过滤器处理请求: /api/chat/group/send
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.security.JwtAuthenticationFilter - 从请求中提取的JWT: eyJhbGciOiJIUzI1NiIs...
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.security.JwtAuthenticationFilter - JWT验证成功，用户名: testuser
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.s.CustomUserDetailsService - 加载用户详情: testuser
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.security.JwtAuthenticationFilter - 用户详情加载成功: testuser
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.security.JwtAuthenticationFilter - 用户认证成功: testuser, 请求路径: /api/chat/group/send
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured POST /chat/group/send
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/chat/group/send", parameters={}
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.chatplatform.controller.ChatController#sendGroupMessage(MessageSendRequest, HttpServletRequest)
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [MessageSendRequest(senderId=null, receiverId=null, groupId=1, content=Hello group chat!, messageType (truncated)...]
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.controller.ChatController - ChatController - Authorization头: Bearer eyJhbGciOiJIU...
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.controller.ChatController - ChatController - 提取的Token: eyJhbGciOiJIUzI1NiIs...
+2025-12-03 12:44:11 [http-nio-8080-exec-8] DEBUG c.c.controller.ChatController - ChatController - 从Token获取用户ID成功: 1
+2025-12-03 12:44:11 [http-nio-8080-exec-8] INFO  c.chatplatform.service.ChatService - 发送群聊消息: 发送者=1, 群组=1
+2025-12-03 12:44:12 [http-nio-8080-exec-8] INFO  c.chatplatform.service.ChatService - 群聊消息发送成功: messageId=2
+2025-12-03 12:44:12 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-12-03 12:44:12 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [ApiResponse(code=200, message=群消息发送成功, data=MessageResponse(id=2, senderId=1, senderNickname=test, s (truncated)...]
+2025-12-03 12:44:12 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
