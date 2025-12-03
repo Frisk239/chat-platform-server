@@ -14,7 +14,7 @@ import java.util.Map;
  */
 @Component
 @Slf4j
-public class HttpSessionHandshakeInterceptor implements HandshakeInterceptor {
+public class CustomHandshakeInterceptor implements HandshakeInterceptor {
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request,

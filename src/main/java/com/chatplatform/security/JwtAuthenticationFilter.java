@@ -40,31 +40,43 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
 
+        String requestURI = request.getRequestURI();
+        log.debug("JWT过滤器处理请求: {}", requestURI);
+
         try {
             // 从请求头中获取JWT
             String jwt = getJwtFromRequest(request);
+            log.debug("从请求中提取的JWT: {}", jwt != null ? jwt.substring(0, Math.min(jwt.length(), 20)) + "..." : "null");
 
-            if (StringUtils.hasText(jwt) && jwtTokenProvider.validateToken(jwt)) {
-                // 获取用户名
-                String username = jwtTokenProvider.getUsernameFromToken(jwt);
+            if (StringUtils.hasText(jwt)) {
+                if (jwtTokenProvider.validateToken(jwt)) {
+                    // 获取用户名
+                    String username = jwtTokenProvider.getUsernameFromToken(jwt);
+                    log.debug("JWT验证成功，用户名: {}", username);
 
-                // 加载用户详情
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    // 加载用户详情
+                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    log.debug("用户详情加载成功: {}", userDetails.getUsername());
 
-                // 创建认证令牌
-                UsernamePasswordAuthenticationToken authentication =
-                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    // 创建认证令牌
+                    UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
-                // 设置认证详情
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    // 设置认证详情
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                // 设置到安全上下文
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                    // 设置到安全上下文
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
 
-                log.debug("用户认证成功: {}, 请求路径: {}", username, request.getRequestURI());
+                    log.debug("用户认证成功: {}, 请求路径: {}", username, requestURI);
+                } else {
+                    log.warn("JWT验证失败，请求路径: {}", requestURI);
+                }
+            } else {
+                log.debug("请求中没有JWT token，请求路径: {}", requestURI);
             }
         } catch (Exception ex) {
-            log.error("无法设置用户认证: {}", ex.getMessage());
+            log.error("JWT认证过程中发生异常，请求路径: {}, 错误: {}", requestURI, ex.getMessage(), ex);
             // 不抛出异常，让过滤器链继续执行
         }
 

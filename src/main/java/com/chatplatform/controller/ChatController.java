@@ -45,8 +45,10 @@ public class ChatController {
     public ResponseEntity<ApiResponse<MessageResponse>> sendPrivateMessage(
             @Valid @RequestBody MessageSendRequest request,
             HttpServletRequest httpRequest) {
+        log.debug("ChatController - 收到发送私聊消息请求");
         try {
             Long senderId = getUserIdFromToken(httpRequest);
+            log.debug("ChatController - 获取到发送者ID: {}", senderId);
             // 重新构建请求对象，设置发送者ID
             MessageSendRequest updatedRequest = MessageSendRequest.builder()
                     .senderId(senderId)
@@ -275,7 +277,24 @@ public class ChatController {
      * 从Token中获取用户ID
      */
     private Long getUserIdFromToken(HttpServletRequest request) {
-        String token = jwtTokenProvider.extractTokenFromHeader(request.getHeader("Authorization"));
-        return jwtTokenProvider.getUserIdFromToken(token);
+        try {
+            String authHeader = request.getHeader("Authorization");
+            log.debug("ChatController - Authorization头: {}", authHeader != null ? authHeader.substring(0, Math.min(authHeader.length(), 20)) + "..." : "null");
+
+            String token = jwtTokenProvider.extractTokenFromHeader(authHeader);
+            log.debug("ChatController - 提取的Token: {}", token != null ? token.substring(0, Math.min(token.length(), 20)) + "..." : "null");
+
+            if (token == null) {
+                log.error("ChatController - Token为空");
+                throw new RuntimeException("Token不能为空");
+            }
+
+            Long userId = jwtTokenProvider.getUserIdFromToken(token);
+            log.debug("ChatController - 从Token获取用户ID成功: {}", userId);
+            return userId;
+        } catch (Exception e) {
+            log.error("ChatController - 从Token中获取用户ID失败: {}", e.getMessage(), e);
+            throw new RuntimeException("无效的Token", e);
+        }
     }
 }

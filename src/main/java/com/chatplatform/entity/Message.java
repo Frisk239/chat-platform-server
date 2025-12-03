@@ -57,12 +57,14 @@ public class Message {
      * 消息类型 0:文本 1:图片 2:文件 3:语音 4:视频 5:表情
      */
     @Column(name = "message_type", nullable = false)
+    @Builder.Default
     private Integer messageType = 0;
 
     /**
      * 消息状态 0:已发送 1:已送达 2:已读
      */
     @Column(name = "status", nullable = false)
+    @Builder.Default
     private Integer status = 0;
 
     /**
@@ -75,6 +77,7 @@ public class Message {
      * 是否撤回 0:否 1:是
      */
     @Column(name = "is_revoked", nullable = false)
+    @Builder.Default
     private Boolean isRevoked = false;
 
     /**
@@ -219,7 +222,7 @@ public class Message {
     /**
      * 是否已撤回
      */
-    public boolean isRevoked() {
+    public boolean isActuallyRevoked() {
         return isRevoked != null && isRevoked;
     }
 

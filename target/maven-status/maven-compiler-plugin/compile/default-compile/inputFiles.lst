@@ -24,7 +24,6 @@ C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\mai
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\dto\request\GroupMemberManageRequest.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\config\WebSocketConfig.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\controller\UserController.java
-C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\websocket\HttpSessionHandshakeInterceptor.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\dto\request\GroupCreateRequest.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\entity\MessageAttachment.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\controller\ChatController.java
@@ -34,6 +33,7 @@ C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\mai
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\websocket\ChatHandler.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\repository\MessageAttachmentRepository.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\repository\GroupMemberRepository.java
+C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\websocket\CustomHandshakeInterceptor.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\util\QQNumberGenerator.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\dto\request\GroupUpdateRequest.java
 C:\Users\LeiYu\Desktop\code\JAVA code\chat-platform\chat-platform-server\src\main\java\com\chatplatform\dto\request\GroupJoinRequest.java
