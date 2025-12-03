@@ -21,6 +21,11 @@ public class GroupJoinRequest {
     private Long groupId;
 
     /**
+     * 群组号（用于通过群号加群）
+     */
+    private String groupNumber;
+
+    /**
      * 申请消息
      */
     @Size(max = 200, message = "申请消息不能超过200个字符")

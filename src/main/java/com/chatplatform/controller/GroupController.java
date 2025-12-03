@@ -232,7 +232,7 @@ public class GroupController {
             HttpServletRequest httpRequest) {
         try {
             Long userId = getUserIdFromToken(httpRequest);
-            List<GroupResponse> groups = groupService.getUserGroups(userId, status);
+            Page<GroupResponse> groups = groupService.getUserGroups(userId, 0, 20, status);
             return ResponseEntity.ok(ApiResponse.success(groups));
         } catch (Exception e) {
             log.error("获取用户群组列表失败", e);

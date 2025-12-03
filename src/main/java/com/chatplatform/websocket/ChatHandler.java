@@ -323,7 +323,7 @@ public class ChatHandler implements WebSocketHandler {
                 .groupId(messageMap.get("groupId") != null ? ((Number) messageMap.get("groupId")).longValue() : null)
                 .content((String) messageMap.get("content"))
                 .messageType(messageMap.get("messageType") != null ? ((Number) messageMap.get("messageType")).intValue() : 0)
-                .replyToId(messageMap.get("replyToMessageId") != null ? ((Number) messageMap.get("replyToMessageId")).longValue() : null)
+                .replyToMessageId(messageMap.get("replyToMessageId") != null ? ((Number) messageMap.get("replyToMessageId")).longValue() : null)
                 .build();
     }
 

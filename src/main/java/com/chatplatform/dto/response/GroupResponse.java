@@ -290,7 +290,7 @@ public class GroupResponse {
                     .userId(member.getUserId())
                     .nickname(member.getNickname())
                     .role(member.getRole())
-                    .roleDescription(getRoleDescription(member.getRole()))
+                    .roleDescription(GroupResponse.getRoleDescription(member.getRole()))
                     .joinStatusDescription(getJoinStatusDescription(member.getJoinStatus()))
                     .joinedAt(member.getJoinedAt())
                     .leftAt(member.getLeftAt())

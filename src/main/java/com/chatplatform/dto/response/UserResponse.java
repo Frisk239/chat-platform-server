@@ -125,6 +125,20 @@ public class UserResponse {
     }
 
     /**
+     * 创建简化的用户信息（从User对象）
+     */
+    public static UserResponse createSimpleUser(com.chatplatform.entity.User user) {
+        return UserResponse.builder()
+                .id(user.getId())
+                .qqNumber(user.getQqNumber())
+                .nickname(user.getNickname())
+                .avatarUrl(user.getAvatarUrl())
+                .status(user.getStatus())
+                .isOnline(user.getStatus() != null && user.getStatus() == 1)
+                .build();
+    }
+
+    /**
      * 创建完整的用户信息
      */
     public static UserResponse createFullUser(com.chatplatform.entity.User user) {
